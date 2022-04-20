@@ -23,3 +23,9 @@ def save(book):
     
     id = result[0]["id"]
     book.id = id
+
+def delete(id):
+    sql = "DELETE FROM books WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+

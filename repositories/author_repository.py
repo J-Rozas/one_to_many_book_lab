@@ -16,6 +16,10 @@ def select(id):
     return author
 
 def save(author):
-    sql = "INSERT INTO authors (name) VALUES (%s)"
+    sql = "INSERT INTO authors (name) VALUES (%s) RETURNING *"
     values = [author.name]
-    run_sql(sql, values)
+    results = run_sql(sql, values)
+    print(results)
+
+    id = results[0]["id"]
+    author.id = id

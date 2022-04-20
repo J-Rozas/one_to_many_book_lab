@@ -1,8 +1,7 @@
-from db.run_sql import run_sql
-
 from models.book import Book
 from models.author import Author
 from repositories import author_repository
+from db.run_sql import run_sql
 
 def select_all():
     books = []
@@ -16,4 +15,11 @@ def select_all():
         books.append(book)
     return books
 
+def save(book):
+    sql = "INSERT INTO books (title, cover, price, author_id) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [book.title, book.cover, book.price, book.author.id]
 
+    result = run_sql(sql, values)
+    
+    id = result[0]["id"]
+    book.id = id

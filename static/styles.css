@@ -1,0 +1,26 @@
+body {
+    background-color: #E9C56E;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.each_book {
+    width: 50%;
+    justify-self: center;
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom: 10%;
+    padding-bottom: 5%;
+    background-color: #6EE9C5;
+}
+
+#delete_book {
+    background-color: #C56EE9;
+    border-radius: 10%;
+}

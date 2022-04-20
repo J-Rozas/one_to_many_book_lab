@@ -2,13 +2,13 @@
 {% block content %}
 <main>
     {% for book in books%}
-        <div class="all_books">
+        <div class="each_book">
             <p>{{ book.title }}</p>
             <p>{{ book.cover }}</p>
             <p>{{ book.price }}</p>
             <p>{{ book.author.name }}</p>
             <form action="/books/{{ book.id }}/delete" method="POST">
-                <button>
+                <button id="delete_book">
                     Delete
                 </button>
             </form>
